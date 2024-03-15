@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> Product Application </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/formstyle.css}" />
+</head>
+<body>
+<div class="login-box">
+    <div class="row">
+        <nav class ="navbar">
+            <img src="/TumiStoreLogo2.png" alt="TumiStoreLogo2" width="500">
+            <ul>
+                <li><a href="/">Home</a> </li>
+                <li><a href="/user/sign-up">sign-Up</a> </li>
+                <li><a href="/user/login">Login</a> </li>
+                <li><a href="">Admin</a> </li>
+                <li><a href="">contact</a> </li>
+            </ul>
+        </nav>
+    </div>
+
+    <form method="post" action="/journey/admin-add-prod" th:object="${journey}">
+        <h4>  Register Journey</h4>
+        <div class="user-box">
+            <label for=><span>Train Name</span></label>
+            <input type="text" th:field="*{trainName}" required>
+        </div>
+        <div class="user-box">
+            <label> <span>departure</span>
+                <input type="text" th:field="*{departure}"  required>
+            </label>
+        </div>
+        <div class="user-box">
+            <label><span> Arrival</span>
+                <input type="text" th:field="*{arrival}" required>
+            </label>
+        </div>
+        <div class="user-box">
+            <label><span> Departure Time</span>
+                <input type="time" th:field="*{departureTime}" required>
+            </label>
+        </div>
+        <div class="user-box">
+            <label><span> Duration</span>
+                <input type="number" th:field="*{duration}" required>
+            </label>
+        </div>
+
+        <div class="user-box">
+            <label><span> Departure Date</span>
+                <input type="date" th:field="*{departureDate}" required>
+            </label>
+
+
+            <div class="user-box">
+                <label><span> Fare</span>
+                    <input type="number" th:field="*{fare}" required>
+                </label>
+        </div>
+
+
+
+
+
+        <div class="user-box">
+        <button type="submit" >Add Journey
+        </button>
+    </div>
+    </form>
+</div>
+</body>
+<!--<script src="script.js"> </script>-->
+</html>

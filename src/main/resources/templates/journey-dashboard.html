@@ -1,0 +1,167 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Product Application</title>-->
+<!--    <style>-->
+
+<!--        table{-->
+
+<!--            border: 1px solid #ddd;-->
+<!--            padding: 8px;-->
+<!--            font-family: Arial, Helvetica, sans-serif;-->
+<!--            border-collapse: collapse;-->
+<!--            width: 80%;-->
+<!--        }-->
+
+<!--        thead{-->
+<!--            padding-top: 12px;-->
+<!--            padding-bottom: 12px;-->
+<!--            text-align: left;-->
+<!--            background-color: #04AA6D;-->
+<!--            color: white;-->
+
+<!--        }-->
+<!--        .button{-->
+<!--            background-color: #04AA6D;-->
+<!--            border: none;-->
+<!--            color: white;-->
+<!--            padding: 15px 32px;-->
+<!--            text-align: center;-->
+<!--            text-decoration: none;-->
+<!--            text-underline: none;-->
+<!--            display: inline-block;-->
+<!--            font-size: 16px;-->
+<!--            margin: 4px 2px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--        button{-->
+<!--            background-color: #04AA6D;-->
+<!--            border: none;-->
+<!--            color: white;-->
+<!--            padding: 2px 2px;-->
+<!--            text-align: center;-->
+<!--            text-decoration: none;-->
+<!--            text-underline: none;-->
+<!--            display: inline-block;-->
+<!--            font-size: 16px;-->
+<!--            margin: 4px 2px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body><h2>-->
+<!--Welcome</h2> <p th:text="${userID}"></p>-->
+<!--<button type="button" class="button">-->
+<!--<a href="/user/logout"> LOGOUT</a>-->
+<!--</button>-->
+<!--<table>-->
+<!--    <div th:text="${cartItems}"></div>-->
+<!--    <thead><td>Product Name</td><td>Categories</td><td>Price</td><td>Quantity</td><td>Image</td><td>Add cart</td></thead>-->
+<!--    <tr th:each="product:${products}">-->
+<!--        <td th:text="${product.name}"> </td>-->
+<!--        <td th:text="${product.category}"></td>-->
+<!--        <td th:text="${product.price}"></td>-->
+<!--        <td th:text="${product.quantity}"></td>-->
+<!--        <td th:src="@{product.img}"></td>-->
+<!--        <td><button><a th:href="@{/products/add-cart(cart=${product.id})}">Add to cart</a> </button></td>-->
+<!--    </tr>-->
+
+<!--</table>-->
+<!--<br>-->
+<!--<button type="button" style="background-color: #04AA6D; background-size: 300px; text-decoration-color: aliceblue; font-size: large; color: #dddddd">-->
+<!--    <a href="/products/payment" style="color: #dddddd;  text-underline-mode: none">Proceed checkout</a>-->
+<!--</button>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Application(TumiStore) </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/table.css}" /></head>
+<body>
+<div class="login-box">
+    <div class="row">
+        <nav class ="navbar">
+            <img src="/TumiStoreLogo2.png" alt="TumiStoreLogo2" width="500">
+            <ul>
+                <li><a href="/">Home</a> </li>
+                <li><a href="/user/sign-up">sign-Up</a> </li>
+                <li><a href="/user/logout">Logout</a> </li>
+                <li><a href="">Admin</a> </li>
+                <li><a href="">contact</a> </li>
+            </ul>
+        </nav>
+    </div>
+    <table class="table1">
+        <h2>
+            <span>Welcome to Journey Dashboard</span></h2> <p th:text="${userID}"> </p>
+        <thead>
+
+        <tr>
+            <th>
+                Reference code
+            </th>
+            <th>
+                TrainName
+            </th>
+            <th>
+                Departure Place
+            </th>
+            <th>
+                Arrival Place
+            </th>
+
+            <th>
+                arrivalDate
+            </th>
+            <th>
+                Departure Date
+            </th>
+            <th>
+                Departure Time
+            </th>
+
+            <th>
+                Arrival Time
+            </th>
+            <th>
+                Train Number
+            </th>
+            <th>
+                Fare
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="journeys:${journey}">
+            <td th:text="${journeys.journeyReference}"></td>
+            <td th:text="${journeys.trainName}"> </td>
+            <td th:text="${journeys.departure}"></td>
+            <td th:text="${journeys.arrival}"></td>
+            <td th:text="${journeys.arrivalDate}"></td>
+            <td th:text="${journeys.departureDate}"></td>
+            <td th:text="${journeys.departureTime}"></td>
+            <td th:text="${journeys.arrivalTime}"></td>
+            <td th:text="${journeys.trainNo}"></td>
+            <td th:text="${journeys.fare}"></td>
+            <td th:text="${journeys.duration}"></td>
+            <td><button><a th:href="@{/booking/passenger-book(id=${journeys.id})}">Book</a> </button></td>
+        </tr>
+
+        </tbody>
+
+    </table>
+</div>
+</body>
+<!--<script src="script.js"> </script>-->
+</html>
